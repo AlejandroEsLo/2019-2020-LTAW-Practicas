@@ -7,19 +7,21 @@ const http = require('http');
 console.log("Arrancando servidor...")
 
 //-- Funcion para atender a una Peticion
-//-- req: Mensaje de solicitud
-//-- res: Mensaje de respuesta
+//-- req: Mensaje de solicitud y res: Mensaje de respuesta
 function peticion(req, res) {
 
   //-- Peticion recibida
   console.log("Peticion recibida!")
+  console.log("Recurso solicitado (URL): " + req.url)
+  console.log(req.headers)
 
   //-- Crear mensaje de respuesta
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end('Hello World!');
-
+  //res.writeHead(200, {'Content-Type': 'text/html'});
+  //res.end('Hello World!');
 }
 
+//var balon = new Image(600,400)
+//balon.src = './balon.jpg'
 //-- Inicializar el servidor
 //-- Cada vez que recibe una petición
 //-- invoca a la funcion peticion para atenderla
