@@ -1,4 +1,28 @@
+
 body{
+  background: url(images/fondo.jpg) no-repeat center fixed;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Erica One', cursive;
+  font-size: 120px;
+  color: yellow;
+  text-align: center;
+  line-height: 100px;
+  text-shadow: 0 1px 0 #FF6600,
+               0 2px 0 #FF6600,
+               0 3px 0 #FF6600,
+               0 4px 0 #FF6600,
+               0 5px 0 #FF6600,
+               0 6px 0 rgba(1, 1, 1, 1),
+               0 7px 0 rgba(1, 1, 1, 1),
+               0 8px 0 rgba(1, 1, 1, 1),
+               0 9px 0 rgba(1, 1, 1, 1),
+               0 10px 10px rgba(1, 1, 1, 1);
+
+}
+h2 {
+  font-size: 30px;
   color: red;
-  background-color: yellow;
 }
