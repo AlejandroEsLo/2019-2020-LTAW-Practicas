@@ -22,9 +22,14 @@ h1 {
                0 10px 10px rgba(1, 1, 1, 1);
 
 }
-h2 {
+
+th {
   font-size: 30px;
   color: red;
+  text-align: center;
+}
+td{
+  text-align: center;
 }
 
 .boton_personalizado{
