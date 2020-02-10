@@ -10,16 +10,23 @@ http.createServer((req, res) => {
   console.log("----------> Peticion recibida")
   let q = url.parse(req.url, true);
 
-  let filename = ""
-
-  //-- Obtener fichero a devolver
-  filename  = "." + q.pathname
-  console.log("Recurso:" + filename)
+  //console.log("search: " + q.search)  // Buscar objeto
+  console.log("Path completo:" + q.pathname)
   console.log("Terminacion:" + path.extname(q.pathname))
+  console.log("Recurso:" + path.basename(q.pathname))
+  
+  //-- Creamos varaibles para obtener terminaciones y el objeto que queremos
+  let terminacion = path.extname(q.pathname)
+  let recurso = path.basename(q.pathname)
 
+  //--- PREGUNTAR DUDA SI ESTO SE PUEDE PONER PARA QUE LO COJA POR DEFECTO LA PRIMERA VEZ QUE SE EJECUTA
+  //------ NO COGE EL RECURSO SI ESTA EN UNA CARPETA(SOLUCIONAR!!!!!!!!!!!!!)
+  //-- Obtener fichero a devolver(Para que coja al principio el index.html)
+  if (q.pathname == "/")
+    recurso = "./"+"index.html"
 
   //-- Leer fichero
-  fs.readFile(filename, function(err, data) {
+  fs.readFile(recurso, function(err, data) {
 
     //-- Fichero no encontrado. Devolver mensaje de error
     if (err) {
@@ -28,8 +35,22 @@ http.createServer((req, res) => {
     }
 
     //-- Tipo mime por defecto: html
-    let mime = "text/html"
+    let mime = ""
 
+    if (terminacion == ".css"){
+      mime = "text/css"
+
+    }else if(terminacion == ".jpg"){
+      mime = "image/jpg"
+
+    }else if(terminacion == ".png"){
+      mime = "image/png"
+
+    }else {
+      mime = "text/html"
+    }
+
+    console.log("MIME:" + mime)
     //-- Generar el mensaje de respuesta
     res.writeHead(200, {'Content-Type': mime});
     res.write(data);
