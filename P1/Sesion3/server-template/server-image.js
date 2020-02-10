@@ -13,9 +13,7 @@ http.createServer((req, res) => {
   let filename = ""
 
   //-- Obtener fichero a devolver
-
   filename  = "." + q.pathname
-
   console.log("Recurso:" + filename)
   console.log("Terminacion:" + path.extname(q.pathname))
 
