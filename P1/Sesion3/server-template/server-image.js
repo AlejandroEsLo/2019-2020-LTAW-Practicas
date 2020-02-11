@@ -14,17 +14,19 @@ http.createServer((req, res) => {
   console.log("Path completo:" + q.pathname)
   console.log("Terminacion:" + path.extname(q.pathname))
   console.log("Recurso:" + path.basename(q.pathname))
-  
+
   //-- Creamos varaibles para obtener terminaciones y el objeto que queremos
   let terminacion = path.extname(q.pathname)
   let recurso = path.basename(q.pathname)
 
-  //--- PREGUNTAR DUDA SI ESTO SE PUEDE PONER PARA QUE LO COJA POR DEFECTO LA PRIMERA VEZ QUE SE EJECUTA
+  //--- PREGUNTAR DUDA SI ESTO SE PUEDE PONER PARA QUE LO COJA POR DEFECTO LA PRIMERA VEZ QUE SE EJECUTA (SIIII)
   //------ NO COGE EL RECURSO SI ESTA EN UNA CARPETA(SOLUCIONAR!!!!!!!!!!!!!)
   //-- Obtener fichero a devolver(Para que coja al principio el index.html)
   if (q.pathname == "/")
-    recurso = "./"+"index.html"
-
+    recurso = "index.html"
+  //--- OBTENER RECURSO ENTERO??????????????
+  if (q.pathname == "/")
+      recurso = "./" + recurso
   //-- Leer fichero
   fs.readFile(recurso, function(err, data) {
 
