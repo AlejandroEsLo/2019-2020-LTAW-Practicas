@@ -3,7 +3,10 @@ body{
   background: url(images/fondo.jpg) no-repeat center fixed;
   background-size: cover;
 }
+table {
 
+  text-align: center;
+}
 h1 {
   font-family: 'Erica One', cursive;
   font-size: 120px;
@@ -55,4 +58,8 @@ td{
   background-color: #1883ba;
   border-radius: 6px;
   border: 2px solid #0016b0;
+}
+
+#text_table{
+  text-align: left;
 }
