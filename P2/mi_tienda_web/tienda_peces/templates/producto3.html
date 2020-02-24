@@ -1,20 +1,22 @@
-<!DOCTYPE html>
+{% load staticfiles%}
+
+
 <html lang="es" dir="ltr">
 <head>
     <meta charset="utf-8">
     <title>Pez Betta</title>
-    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
-    <link rel="icon" href="images/logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="tienda.css">
+    <link rel="shortcut icon" src="{% static 'images/logo.ico'%}" type="image/x-icon">
+    <link rel="icon" src="{% static 'images/logo.ico'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'tienda.css'%}">
   </head>
   <body>
     <h1>
-      <img src="{% static 'images/betta.png'" alt="logo" width="180" height="180" align="center"> PEZ BETTA
+      <img src="{% static 'images/betta.png'%}" alt="logo" width="180" height="180" align="center"> PEZ BETTA
     </h1>
 
         <table style="width:100%">
           <tr>
-            <th rowspan="2"><img src="{% static 'images/pez-betta.jpg'" alt="betta" width="500" height="380"></th>
+            <th rowspan="2"><img src="{% static 'images/pez-betta.jpg'%}" alt="betta" width="500" height="380"></th>
             <td>
               <ul id="text_table">
                 <li>Nombre científico: Betta splendens</li>
@@ -34,7 +36,7 @@
         </table>
 
         <p>&nbsp</p><!--Linea en blanco-->
-        <a class="boton_producto" href="index.html" >Pagina inicio</a>
+        <a class="boton_producto" href="/tienda_peces" >Pagina inicio</a>
 
   </body>
 </html>

@@ -1,5 +1,5 @@
+{% load staticfiles%}
 
-<!DOCTYPE html>
 <html lang="es" dir="ltr">
 <head>
     <meta charset="utf-8">
@@ -10,12 +10,12 @@
   </head>
   <body>
     <h1>
-      <img src="{% static 'images/disco.png'" alt="logo" width="180" height="180" align="center"> PEZ DISCO
+      <img src="{% static 'images/disco.png'%}" alt="logo" width="180" height="180" align="center"> PEZ DISCO
     </h1>
 
     <table style="width:100%">
       <tr>
-        <th rowspan="2"><img src="{% static 'images/pez-disco3.jpg'" alt="disco3" width="600px"></th>
+        <th rowspan="2"><img src="{% static 'images/pez-disco3.jpg'%}" alt="disco3" width="600px"></th>
         <td>
           <ul id="text_table">
             <li>Nombre científico: Symphysodon</li>
@@ -35,7 +35,7 @@
     </table>
 
     <p>&nbsp</p><!--Linea en blanco-->
-    <a class="boton_producto" href="index.html" >Pagina inicio</a>
+    <a class="boton_producto" href="/tienda_peces" >Pagina inicio</a>
 
 
   </body>

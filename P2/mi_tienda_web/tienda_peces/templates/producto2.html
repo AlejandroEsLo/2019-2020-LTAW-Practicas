@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% load staticfiles%}
+
+
 <html lang="es" dir="ltr">
 <head>
     <meta charset="utf-8">
@@ -9,12 +11,12 @@
   </head>
   <body>
     <h1>
-      <img src="{% static 'images/escalar.png'" alt="logo" width="300px" align="center"> PEZ ESCALAR
+      <img src="{% static 'images/escalar.png'%}" alt="logo" width="300px" align="center"> PEZ ESCALAR
     </h1>
 
     <table style="width:100%">
       <tr>
-        <th rowspan="2"><img src="{% static 'images/pez-escalar3.jpg'" alt="escalar" width="500px">
+        <th rowspan="2"><img src="{% static 'images/pez-escalar3.jpg'%}" alt="escalar" width="500px">
         </th>
         <td>
           <ul id="text_table">
@@ -35,7 +37,7 @@
     </table>
 
     <p>&nbsp</p><!--Linea en blanco-->
-    <a class="boton_producto" href="index.html" >Pagina inicio</a>
+    <a class="boton_producto" href="/tienda_peces" >Pagina inicio</a>
 
   </body>
 </html>

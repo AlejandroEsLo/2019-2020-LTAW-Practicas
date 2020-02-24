@@ -1,3 +1,5 @@
+# -- Fichero mi_tienda/admin.py
 from django.contrib import admin
+from tienda_peces.models import Producto
 
-# Register your models here.
+admin.site.register(Producto)
