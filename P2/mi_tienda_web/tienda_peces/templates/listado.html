@@ -1,14 +1,17 @@
+{% load staticfiles%}
+
 <!DOCTYPE html>
   <html lang="es" dir="ltr">
     <head>
       <meta charset="utf-8">
       <title>Listado</title>
+        <link rel="stylesheet" href="{% static 'listado.css'%}">
     </head>
     <body>
       <h1>Listado de productos</h1>
       <ul>
       {% for prod in productos %}
-          <li>{{ prod.nombre }}: --> Precio: {{prod.precio}}</a></li>
+          <li>{{ prod.nombre }}: --> Precio: {{prod.precio}}  ==> Stock: {{prod.stock}}</a></li>
       {% endfor %}
       </ul>
     </body>
