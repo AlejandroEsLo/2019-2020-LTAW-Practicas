@@ -13,7 +13,7 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
-class Pedidos(models.Model):
+class Pedido(models.Model):
     """Modelo de datos de mis pedidos"""
 
     nombre = models.CharField(max_length=50)

@@ -15,5 +15,5 @@ urlpatterns = [
     path('list/', views.list, name='list'),
     path('formulario/', views.formulario, name='formulario'),
     path('recepcion/', views.recepcion, name='reception'),
-    path('pedidos/', views.pedidos, name='pedidos'),
+    path('pedido/', views.pedido, name='pedido'),
 ]
