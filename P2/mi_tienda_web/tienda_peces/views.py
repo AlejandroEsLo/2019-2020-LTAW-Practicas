@@ -5,6 +5,7 @@ from django.template.loader import get_template
 from django.shortcuts import render
 from random import randint
 from tienda_peces.models import Producto
+from tienda_peces.models import Pedidos
 
 # Create your views here.
 def index(request):
@@ -30,3 +31,22 @@ def producto3(request):
 def list(request):
     productos = Producto.objects.all()
     return render(request, 'listado.html', {'productos':productos})
+#--------- Vista para formulario -----------------------
+#-- Envio datos cliente
+def formulario(request):
+    return render(request, 'formulario.html', {})
+
+#-- Recepcion datos clientes
+def recepcion(request):
+    # -- Obtener el nombre de la persona
+    persona = request.POST['nombre']
+    articulo = request.POST['articulo']
+    p = Pedidos(nombre=persona, articulo=articulo)
+    p.save()
+    # -- Imprimirlo en la consola del servidor
+    print(f" PEDIDO RECIBIDO!!! ----> {persona} + {articulo}")
+    return HttpResponse("Datos recibidos!!. Comprador: " + request.POST['nombre']+ request.POST['articulo'])
+
+def pedidos(request):
+    pedidos = Pedidos.objects.all()
+    return render(request, 'pedidos.html', {'pedidos':pedidos})

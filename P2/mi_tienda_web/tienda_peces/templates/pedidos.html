@@ -1,0 +1,18 @@
+{% load staticfiles%}
+
+<!DOCTYPE html>
+  <html lang="es" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>Listado</title>
+        <link rel="stylesheet" href="{% static 'listado.css'%}">
+    </head>
+    <body>
+      <h1>Listado de productos</h1>
+      <ul>
+      {% for pedi in pedidos %}
+          <li>Nombre:{{ pedi.nombre }}: ==> Articulo: {{pedi.articulo}} </a></li>
+      {% endfor %}
+      </ul>
+    </body>
+  </html>

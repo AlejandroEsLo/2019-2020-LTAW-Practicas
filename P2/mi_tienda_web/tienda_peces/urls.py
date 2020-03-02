@@ -13,4 +13,7 @@ urlpatterns = [
     path('producto2.html/', views.producto2, name='producto2'),
     path('producto3.html/', views.producto3, name='producto3'),
     path('list/', views.list, name='list'),
+    path('formulario/', views.formulario, name='formulario'),
+    path('recepcion/', views.recepcion, name='reception'),
+    path('pedidos/', views.pedidos, name='pedidos'),
 ]

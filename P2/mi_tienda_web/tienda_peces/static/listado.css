@@ -1,3 +1,15 @@
 body{
-  background-color: gold
+  background-color:  #f4d064  ;
+  text-align: center;
+}
+
+h1{
+  font-family: 'Erica One', cursive;
+  font-size: 60px;
+}
+
+li{
+  font-size: 20px;
+  color: blue;
+  font-style: italic;
 }
