@@ -63,3 +63,21 @@ td{
 #text_table{
   text-align: left;
 }
+
+#pedir{
+  text-align: center;
+  padding: 20px;/*Relleno entre el cuerpo y el contenido*/
+  margin: 80px;/*Margen alrededor del borde.*/
+}
+#boton_pedidos {
+text-decoration: none;
+padding: 10px;
+font-weight: 600;
+font-size: 20px;
+color: #000000;
+background-color: #f7dc6f;
+border-radius: 6px;
+border: 2px solid  #c0392b ;
+/*background: url(images/carro.png) no-repeat center fixed*/
+
+}

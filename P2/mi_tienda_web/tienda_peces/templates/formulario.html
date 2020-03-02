@@ -1,17 +1,22 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Formulario</title>
+    <link rel="shortcut icon" src="{% static 'images/logo.ico'%}" type="image/x-icon">
+    <link rel="icon" src="{% static 'images/logo.ico'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'listado.css'%}">
   </head>
   <body>
     <h1>Formulario de Pedido</h1>
     <form  action="/tienda_peces/recepcion/" method="post">
       {% csrf_token %}
       <label>Nombre de la persona que hace el pedido: <label>
-      <input type="text" name="nombre" value="Anonimo" />
+      <input type="text" name="nombre" value="...." />
       <label>Articulo deseado: <label>
-      <input type="text" name="articulo" value="Anonimo" />
+      <input type="text" name="articulo" value="...." />
       <input type="submit" value="OK" />
     </form>
   </body>

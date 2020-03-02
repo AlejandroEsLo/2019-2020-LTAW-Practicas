@@ -15,19 +15,19 @@ def producto1(request):
     # -- Obtener valores de los productos
     productos = Producto.objects.all()
     return render(request, 'producto1.html', {'precio':productos[0].precio,
-    'nombre':productos[0].nombre})
+    'nombre':productos[0].nombre,'stock':productos[0].stock})
 
 def producto2(request):
     # -- Obtener valores de los productos
     productos = Producto.objects.all()
     return render(request, 'producto2.html', {'precio':productos[1].precio,
-    'nombre':productos[1].nombre})
+    'nombre':productos[1].nombre,'stock':productos[1].stock})
 
 def producto3(request):
     # -- Obtener valores de los productos
     productos = Producto.objects.all()
     return render(request, 'producto3.html', {'precio':productos[2].precio,
-    'nombre':productos[2].nombre})
+    'nombre':productos[2].nombre,'stock':productos[2].stock})
 
 def list(request):
     productos = Producto.objects.all()
