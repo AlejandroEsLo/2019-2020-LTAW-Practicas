@@ -9,21 +9,22 @@ from tienda_peces.models import Pedido
 
 # Create your views here.
 def index(request):
-    # -- Obtener el número aleatorio
-    numero = randint(0, 100)
-    return render(request, 'index.html', {'numero':str(numero)})
+    return render(request, 'index.html')
 
 def producto1(request):
-    # -- Obtener el número aleatorio
-    numero = randint(0, 100)
-    return render(request, 'producto1.html', {'numero':str(numero)})
+    # -- Obtener valores de los productos
+    productos = Producto.objects.all()
+    return render(request, 'producto1.html', {'precio':productos[0].precio,
+    'nombre':productos[0].nombre})
 
 def producto2(request):
-    # -- Obtener el número aleatorio
-    numero = randint(0, 100)
-    return render(request, 'producto2.html', {'numero':str(numero)})
+    # -- Obtener valores de los productos
+    productos = Producto.objects.all()
+    return render(request, 'producto2.html', {'precio':productos[1].precio,
+    'nombre':productos[1].nombre})
 
 def producto3(request):
+    # -- Obtener valores de los productos
     productos = Producto.objects.all()
     return render(request, 'producto3.html', {'precio':productos[2].precio,
     'nombre':productos[2].nombre})
@@ -45,7 +46,8 @@ def recepcion(request):
     p.save()
     # -- Imprimirlo en la consola del servidor
     print(f" PEDIDO RECIBIDO!!! ----> {persona} + {articulo}")
-    return HttpResponse("Datos recibidos!!. Comprador: " + request.POST['nombre']+ request.POST['articulo'])
+    return HttpResponse("Datos recibidos!!. Comprador: " + request.POST['nombre']
+    + " ---> " + "Articulo: " + request.POST['articulo'])
 
 def pedido(request):
     pedido = Pedido.objects.all()
