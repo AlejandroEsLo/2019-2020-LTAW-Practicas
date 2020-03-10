@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs');
 const PUERTO = 8080
 
-
 //-- Funcion para atender a una Peticion
 //-- req: Mensaje de solicitud
 //-- res: Mensaje de respuesta
@@ -27,32 +26,36 @@ function peticion(req, res) {
 
     //-- Pagina principal
     case "/":
+      content = "Bienvenido a mi tienda "
+
       recurso = "index.html"
       //--- OBTENER RECURSO ENTERO
       recurso = "./" + recurso
 
       //-- No hay ninguna cookie
       if (!cookie) {
-        content = "\nNo te conozco... Registrate!\n"
-        content = "Accede a /login"
+        content += "\nNo te conozco... Registrate!\n"
+        content += "Accede a /login"
 
       //-- Hay definida una Cookie.
       } else {
-        content = "Cookie encontrada"
+        content += "ALEX"
       }
 
       res.statusCode = 200;
       break;
 
-    //-- Pagina de acceso
-    case "/login":
+    //-- En caso de pulsar el boton de login, nos registramos
+    case "/login"://--boton_login.onclick:
+
       content = "Registrado! Cookie enviada al navegador!"
       recurso = "index.html"
       //--- OBTENER RECURSO ENTERO
       recurso = "./" + recurso
+      console.log("REGISTRADOOO");
 
       //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
-      res.setHeader('Set-Cookie', 'user=Cookie encontrada')
+      res.setHeader('Set-Cookie', 'user=ALEX')
       break
 
     //-- Se intenta acceder a cualquier otro recurso
@@ -88,6 +91,7 @@ function peticion(req, res) {
   //-- Generar el mensaje de respuesta
   res.setHeader('Content-Type', mime)
   res.write(data);
+  res.write(content);
   res.end();
   });
 console.log(content)

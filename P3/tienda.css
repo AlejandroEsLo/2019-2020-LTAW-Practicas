@@ -80,3 +80,38 @@ border: 2px solid  #c0392b ;
 /*background: url(images/carro.png) no-repeat center fixed*/
 
 }
+
+#login{
+  text-align: left;
+  padding: 20px;/*Relleno entre el cuerpo y el contenido*/
+  margin: 80px;/*Margen alrededor del borde.*/
+}
+#boton_login {
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  background: #889ccf;
+  margin: 0 0 25px;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 35px 0px 35px 0px;
+  -moz-border-radius: 35px 0px 35px 0px;
+  -webkit-border-radius: 35px 0px 35px 0px;
+  border: 2px solid #5878ca;}
+
+
+  button{
+    cursor: pointer;  /* cursor mano */
+    transition-duration: 0.4s;
+  }
+
+  button:hover {  /*Cambio color botones*/
+    background-color: #1883ba;
+  }
+
+  button:active { /Mover al click*/
+    box-shadow: 0 5px #666;
+    transform: translateY(6px);
+  }

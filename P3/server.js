@@ -27,8 +27,8 @@ http.createServer((req, res) => {
   //-- Obtener fichero a devolver(Para que coja al principio el index.html)
   if (q.pathname == "/")
     recurso = "index.html"
-  //--- OBTENER RECURSO ENTERO
-  recurso = "./" + recurso
+    //--- OBTENER RECURSO ENTERO
+    recurso = "./" + recurso
 
   //-- Leer fichero
   fs.readFile(recurso, function(err, data) {
