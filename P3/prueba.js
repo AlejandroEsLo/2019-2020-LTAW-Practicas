@@ -2,7 +2,7 @@ const http = require('http');
 const url = require('url');
 const path = require('path');
 const fs = require('fs');
-const PUERTO = 8080
+const PUERTO = 8000
 
 //-- Funcion para atender a una Peticion
 //-- req: Mensaje de solicitud
@@ -57,6 +57,20 @@ function peticion(req, res) {
       //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
       res.setHeader('Set-Cookie', 'user=ALEX')
       break
+
+    //-- En caso de pulsar el boton de carrito, nos añade producto al carrito
+    case "/carrito.html":
+
+      content = "Producto añadido al carrito"
+      recurso = "registro.html"
+      //--- OBTENER RECURSO ENTERO
+      recurso = "./" + recurso
+      console.log("Producto añadido");
+
+      //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
+      res.setHeader('Set-Cookie', 'user=ALEX', 'value=Producto')
+      break
+
 
     //-- Se intenta acceder a cualquier otro recurso
     default:
