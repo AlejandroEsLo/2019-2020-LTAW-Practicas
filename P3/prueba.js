@@ -46,10 +46,10 @@ function peticion(req, res) {
       break;
 
     //-- En caso de pulsar el boton de login, nos registramos
-    case "/login"://--boton_login.onclick:
+    case "/registro.html"://--boton_login.onclick:
 
       content = "Registrado! Cookie enviada al navegador!"
-      recurso = "index.html"
+      recurso = "registro.html"
       //--- OBTENER RECURSO ENTERO
       recurso = "./" + recurso
       console.log("REGISTRADOOO");
