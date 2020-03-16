@@ -59,7 +59,7 @@ function peticion(req, res) {
       break
 
     //-- En caso de pulsar el boton de carrito, nos añade producto al carrito
-    case "/carrito.html":
+    case "/producto1":
 
       if (cookie == "user=ALEX") {
         content = "Producto añadido al carrito"
@@ -80,6 +80,29 @@ function peticion(req, res) {
 
         break
       }
+
+    case "/producto2":
+
+      if (cookie == "user=ALEX") {
+        content = "Producto añadido al carrito"
+        recurso = "producto2.html"
+        //--- OBTENER RECURSO ENTERO
+        recurso = "./" + recurso
+        console.log("Producto 2 añadido");
+
+        //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
+        res.setHeader('Set-Cookie', 'value=Producto2')
+        break
+      }else{
+        content = "Registrate para añadir productos al carrito"
+        recurso = "carrito.html"
+        //--- OBTENER RECURSO ENTERO
+        recurso = "./" + recurso
+        console.log("No puedo añadir producto");
+
+        break
+      }
+
 
     //-- Se intenta acceder a cualquier otro recurso
     default:
