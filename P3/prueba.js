@@ -21,6 +21,13 @@ function peticion(req, res) {
   const cookie = req.headers.cookie;
   console.log("Cookie: " + cookie)
 
+  if (cookie) {
+    //-- Separamos elementos de nuestra cadena cookie
+    var elementos_cookie = cookie.split(';');
+    console.log("ELEMENTOS COOKIES =>>" + elementos_cookie);
+    console.log("ELEMENTO [0] =>>" + elementos_cookie[0]);
+  }
+
   //-- Segun el recurso al que se accede
   switch (q.pathname) {
 
@@ -61,16 +68,20 @@ function peticion(req, res) {
     //-- En caso de pulsar el boton de carrito, nos añade producto al carrito
     case "/producto1":
 
-      if (cookie == "user=ALEX") {
-        content = "Producto añadido al carrito"
-        recurso = "producto1.html"
-        //--- OBTENER RECURSO ENTERO
-        recurso = "./" + recurso
-        console.log("Producto 1 añadido");
+    //--("user=ALEX" in elementos_cookie)   && 
 
-        //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
-        res.setHeader('Set-Cookie', 'value=Producto1')
-        break
+      if (cookie ) {
+        if(('user=ALEX' in elementos_cookie) == true){
+            content = "Producto añadido al carrito"
+            recurso = "producto1.html"
+            //--- OBTENER RECURSO ENTERO
+            recurso = "./" + recurso
+            console.log("Producto 1 añadido");
+
+            //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
+            res.setHeader('Set-Cookie', 'value=Producto1')
+            break
+        }
       }else{
         content = "Registrate para añadir productos al carrito"
         recurso = "carrito.html"
@@ -83,7 +94,7 @@ function peticion(req, res) {
 
     case "/producto2":
 
-      if (cookie == "user=ALEX") {
+      if (('user=ALEX' in elementos_cookie) == true) {
         content = "Producto añadido al carrito"
         recurso = "producto2.html"
         //--- OBTENER RECURSO ENTERO
@@ -109,6 +120,8 @@ function peticion(req, res) {
       recurso = q.pathname
       recurso = "./" + recurso
   }
+
+console.log("COOKIES =>> " + cookie);
 
   //-- Leer fichero
   fs.readFile(recurso, function(err, data) {
