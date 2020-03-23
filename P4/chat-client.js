@@ -4,7 +4,7 @@ console.log("Ejecutando cliente JS...");
 const display = document.getElementById("display");
 const msg = document.getElementById("msg");
 const send = document.getElementById("send");
-const cmd = document.getElementById("msg");
+const cmd = document.getElementById("cmd");
 
 
 //-- Crear un websocket. Se establece la conexión con el servidor
