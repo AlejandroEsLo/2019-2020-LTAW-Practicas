@@ -12,6 +12,9 @@ const http = require('http').Server(app);
 //-- Biblioteca socket.io en el lado del servidor
 const io = require('socket.io')(http);
 
+//<<<<< contador usuarios >>>>>
+let cont_usu = 0;
+
 //-- Puerto donde lanzar el servidor
 const PORT = 8000
 
@@ -43,12 +46,15 @@ app.use('/', express.static(__dirname +'/'));
 //-- Un nuevo cliente se ha conectado!
 io.on('connection', function(socket){
 
+  //<<<<< Sumamos uno al contador >>>>>
+  cont_usu += 1;
+
   //-- Usuario conectado. Imprimir el identificador de su socket
   console.log('--> Usuario conectado!. Socket id: ' + socket.id);
 
   //-- Le damos la bienvenida a través del evento 'hello'
   //-- ESte evento lo hemos creado nosotros para nuestro chat
-  socket.emit('hello', "Bienvenido al Chat");
+  socket.emit('hello', "Bienvenido al Chat. Eres el usuario numero:" + cont_usu);
 
   //-- Función de retrollamada de mensaje recibido del cliente
   socket.on('msg', (msg) => {
@@ -61,5 +67,7 @@ io.on('connection', function(socket){
   //-- Usuario desconectado. Imprimir el identificador de su socket
   socket.on('disconnect', function(){
     console.log('--> Usuario Desconectado. Socket id: ' + socket.id);
+    //<<<<< Restamos uno al contador >>>>>
+    cont_usu -= 1;
   });
 });
