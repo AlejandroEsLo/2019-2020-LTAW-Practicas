@@ -64,6 +64,23 @@ io.on('connection', function(socket){
     io.emit('msg', msg);
   })
 
+  socket.on('cmd', (msg) => {
+    console.log("Cliente: " + socket.id + ': ' + msg);
+
+    if(msg =='/help'){
+      socket.emit('cmd', " Comandos posibles: /help , /list, /hello, /date ");
+    }else if (msg =='/list') {
+      socket.emit('cmd', " Numero de usuarios conectados:  " + cont_usu);
+    }else if (msg =='/hello') {
+      socket.emit('cmd', "Hello");
+    }else if (msg =='/date') {
+      socket.emit('cmd', "Fecha");
+    }else {
+      socket.emit('cmd', " Comando Erroneo: ejecute /help para ver los comandos permitidos ");
+    }
+  })
+
+
   //-- Usuario desconectado. Imprimir el identificador de su socket
   socket.on('disconnect', function(){
     console.log('--> Usuario Desconectado. Socket id: ' + socket.id);
