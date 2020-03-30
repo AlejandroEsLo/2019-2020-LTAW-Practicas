@@ -144,6 +144,17 @@ function peticion(req, res) {
         }
 
 
+      case "/carrito.html":
+        //-- Creamos variable carrito , con todos los elementos de la cookies
+        //-- Quitamos el [0], ya que sera el user de regitro [user=ALEX] y solo queremos los productos
+        let carrito = elementos_cookie.slice(1, elementos_cookie.length);
+        content = "Productos del carrito: " + carrito;
+        recurso = "carrito.html"
+        //--- OBTENER RECURSO ENTERO
+        recurso = "./" + recurso
+        console.log("No puedo añadir producto");
+
+        break
     //-- Se intenta acceder a cualquier otro recurso
     default:
       recurso = q.pathname
