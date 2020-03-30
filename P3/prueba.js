@@ -26,6 +26,14 @@ function peticion(req, res) {
     var elementos_cookie = cookie.split(';');
     console.log("ELEMENTOS COOKIES =>>" + elementos_cookie);
     console.log("ELEMENTO [0] =>>" + elementos_cookie[0]);
+
+    //-- Comprobamos si estamos registrados y tenemos nuestra cookie de registro
+    var i
+    for (i=0;i<=elementos_cookie.length ;i++) {
+      if('user=ALEX'==elementos_cookie[i]){
+        var user= true
+      }
+    }
   }
 
   //-- Segun el recurso al que se accede
@@ -68,20 +76,19 @@ function peticion(req, res) {
     //-- En caso de pulsar el boton de carrito, nos añade producto al carrito
     case "/producto1":
 
-    //--("user=ALEX" in elementos_cookie)   && 
+    //--Comprobamos si estamos registrados para poder añadir el producto
+      if (cookie && user == true) {
 
-      if (cookie ) {
-        if(('user=ALEX' in elementos_cookie) == true){
-            content = "Producto añadido al carrito"
-            recurso = "producto1.html"
-            //--- OBTENER RECURSO ENTERO
-            recurso = "./" + recurso
-            console.log("Producto 1 añadido");
+        content = "Producto 1 añadido al carrito"
+        recurso = "producto1.html"
+        //--- OBTENER RECURSO ENTERO
+        recurso = "./" + recurso
+        console.log("Producto 1 añadido");
 
-            //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
-            res.setHeader('Set-Cookie', 'value=Producto1')
-            break
-        }
+        //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
+        res.setHeader('Set-Cookie', 'Producto1=Pez Disco')
+        break
+
       }else{
         content = "Registrate para añadir productos al carrito"
         recurso = "carrito.html"
@@ -94,15 +101,15 @@ function peticion(req, res) {
 
     case "/producto2":
 
-      if (('user=ALEX' in elementos_cookie) == true) {
-        content = "Producto añadido al carrito"
+      if (cookie && user == true) {
+        content = "Producto 2 añadido al carrito"
         recurso = "producto2.html"
         //--- OBTENER RECURSO ENTERO
         recurso = "./" + recurso
         console.log("Producto 2 añadido");
 
         //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
-        res.setHeader('Set-Cookie', 'value=Producto2')
+        res.setHeader('Set-Cookie', 'Producto2=Pez Escalar')
         break
       }else{
         content = "Registrate para añadir productos al carrito"
@@ -113,6 +120,28 @@ function peticion(req, res) {
 
         break
       }
+
+      case "/producto3":
+
+        if (cookie && user == true) {
+          content = "Producto 3 añadido al carrito"
+          recurso = "producto3.html"
+          //--- OBTENER RECURSO ENTERO
+          recurso = "./" + recurso
+          console.log("Producto 3 añadido");
+
+          //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
+          res.setHeader('Set-Cookie', 'Producto3=Pez Betta')
+          break
+        }else{
+          content = "Registrate para añadir productos al carrito"
+          recurso = "carrito.html"
+          //--- OBTENER RECURSO ENTERO
+          recurso = "./" + recurso
+          console.log("No puedo añadir producto");
+
+          break
+        }
 
 
     //-- Se intenta acceder a cualquier otro recurso
