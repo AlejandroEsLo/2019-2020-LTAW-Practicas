@@ -65,8 +65,6 @@ function peticion(req, res) {
 
       content = "Registrado! Cookie enviada al navegador!"
       recurso = "registro.html"
-      //--- OBTENER RECURSO ENTERO
-      recurso = "./" + recurso
       console.log("REGISTRADOOO");
 
       //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
@@ -81,8 +79,6 @@ function peticion(req, res) {
 
         content = "Producto 1 añadido al carrito"
         recurso = "producto1.html"
-        //--- OBTENER RECURSO ENTERO
-        recurso = "./" + recurso
         console.log("Producto 1 añadido");
 
         //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
@@ -92,8 +88,6 @@ function peticion(req, res) {
       }else{
         content = "Registrate para añadir productos al carrito"
         recurso = "carrito.html"
-        //--- OBTENER RECURSO ENTERO
-        recurso = "./" + recurso
         console.log("No puedo añadir producto");
 
         break
@@ -104,8 +98,6 @@ function peticion(req, res) {
       if (cookie && user == true) {
         content = "Producto 2 añadido al carrito"
         recurso = "producto2.html"
-        //--- OBTENER RECURSO ENTERO
-        recurso = "./" + recurso
         console.log("Producto 2 añadido");
 
         //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
@@ -114,8 +106,6 @@ function peticion(req, res) {
       }else{
         content = "Registrate para añadir productos al carrito"
         recurso = "carrito.html"
-        //--- OBTENER RECURSO ENTERO
-        recurso = "./" + recurso
         console.log("No puedo añadir producto");
 
         break
@@ -126,8 +116,6 @@ function peticion(req, res) {
         if (cookie && user == true) {
           content = "Producto 3 añadido al carrito"
           recurso = "producto3.html"
-          //--- OBTENER RECURSO ENTERO
-          recurso = "./" + recurso
           console.log("Producto 3 añadido");
 
           //-- ESTABLECER LA COOKIE!! En el campo set-cookie metemos la cookie que tengamos
@@ -136,8 +124,6 @@ function peticion(req, res) {
         }else{
           content = "Registrate para añadir productos al carrito"
           recurso = "carrito.html"
-          //--- OBTENER RECURSO ENTERO
-          recurso = "./" + recurso
           console.log("No puedo añadir producto");
 
           break
