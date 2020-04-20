@@ -1,7 +1,8 @@
 # Práctica 2 : SERVIDOR CON DJANGO
 Funcionamiento de mi tienda de peces:
 
-1) Para arrancar el servidor :
+1) Para arrancar el servidor desde la carpeta mi_tienda_web y ahi ejecutamos el server:
+
       python3 manage.py runserver
 
 2) Desde el navegador nos conectamos a localhost:8000/tienda_peces/
@@ -20,6 +21,9 @@ Funcionamiento de mi tienda de peces:
 
 6) Para realizar un pedido, pinchar en el boton de "Hacer un pedido" en la
     página principal o entrar a traves de: localhost:8000/tienda_peces/formulario/
+
+7) Para administrar productos y pedidos lo haremos a traves de :
+    localhost:8000/admin
 
 ANEXOS:
 
