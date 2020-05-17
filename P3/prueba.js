@@ -87,7 +87,7 @@ function peticion(req, res) {
 
       }else{
         content = "Registrate para añadir productos al carrito"
-        recurso = "carrito.html"
+        recurso = "producto1.html"
         console.log("No puedo añadir producto");
 
         break
@@ -105,7 +105,7 @@ function peticion(req, res) {
         break
       }else{
         content = "Registrate para añadir productos al carrito"
-        recurso = "carrito.html"
+        recurso = "producto2.html"
         console.log("No puedo añadir producto");
 
         break
@@ -123,24 +123,58 @@ function peticion(req, res) {
           break
         }else{
           content = "Registrate para añadir productos al carrito"
-          recurso = "carrito.html"
+          recurso = "producto3.html"
           console.log("No puedo añadir producto");
 
           break
         }
 
-
       case "/carrito.html":
-        //-- Creamos variable carrito , con todos los elementos de la cookies
-        //-- Quitamos el [0], ya que sera el user de regitro [user=ALEX] y solo queremos los productos
-        let carrito = elementos_cookie.slice(1, elementos_cookie.length);
-        content = "Productos del carrito: " + carrito;
-        recurso = "carrito.html"
-        //--- OBTENER RECURSO ENTERO
-        recurso = "./" + recurso
-        console.log("No puedo añadir producto");
+        if (cookie && user == true) {
+          //-- Creamos variable carrito , con todos los elementos de la cookies
+          //-- Quitamos el [0], ya que sera el user de regitro [user=ALEX] y solo queremos los productos
+          let carrito = elementos_cookie.slice(1, elementos_cookie.length);
+          content = "Productos del carrito: " + carrito + "<br/>";
+          recurso = "carrito.html"
+          //--- OBTENER RECURSO ENTERO
+          recurso = "./" + recurso
+          break
+        }else{
+          content = "Registrate para añadir productos al carrito"
+          recurso = "index.html"
+          console.log("No puedo añadir producto");
 
-        break
+          break
+        }
+      //-- Pagina de acceso
+      case "/myform":
+
+          if (req.method === 'POST') {
+            // Handle post info...
+
+            req.on('data', chunk => {
+                //-- Leer los datos (convertir el buffer a cadena)
+                data = chunk.toString();
+
+                //-- Añadir los datos a la respuesta
+                content += data;
+
+                //-- Mostrar los datos en la consola del servidor
+                console.log("Datos recibidos: " + data)
+                res.statusCode = 200;
+             });
+
+             req.on('end', ()=> {
+               //-- Generar el mensaje de respuesta
+               res.setHeader('Content-Type', 'text/html')
+               res.write(content);
+               res.end();
+             })
+             return
+          }
+
+          break
+
     //-- Se intenta acceder a cualquier otro recurso
     default:
       recurso = q.pathname
@@ -173,6 +207,9 @@ console.log("COOKIES =>> " + cookie);
     }else {
       mime = "text/html"
     }
+
+
+  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!");
   //-- Generar el mensaje de respuesta
   res.setHeader('Content-Type', mime)
   res.write(data);
