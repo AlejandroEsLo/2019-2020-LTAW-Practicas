@@ -13,19 +13,27 @@
       <img src="images/logo.png" alt="logo" width="220px" align="center"> PEZ TOTAL
     </h1>
 
-    <form action="/myform" method="post" align="center">
-      Nombre:
-      <input type="text" name="Nombre"/> <br />
-      Apellidos:
-      <input type="text" name="Apellidos"/> <br />
-      Direccion:
-      <input type="text" name="Direccion"/> <br />
-      Telefono:
-      <input type="text" name="Telefono"/> <br />
-      Metodo de pago:
-      <input type="text" name="Pago"/> <br />
-      <input type="submit" value="Enviar"/>
-    </form>
+
+    <table style="width:100%" >
+      <tr>
+        <dl id="pedido">
+        <form action="/myform" method="post">
+          Nombre
+          <li><input type="text" name="Nombre"/></li> <br />
+          Apellidos
+          <li><input type="text" name="Apellidos"/></li> <br />
+          Direccion
+          <li><input type="text" name="Direccion"/></li> <br />
+          Telefono
+          <li><input type="text" name="Telefono"/></li> <br />
+          Metodo de pago
+          <li><input type="text" name="Pago"/></li> <br />
+          <br />
+          <input type="submit" value="Enviar"/>
+        </form>
+        </ul>
+      </tr>
+    </table>
 
     <div id="pedir">
       <a id="boton_pedidos" href="/">Volver a pagina principal</a>

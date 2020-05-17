@@ -115,3 +115,7 @@ border: 2px solid  #c0392b ;
     box-shadow: 0 5px #666;
     transform: translateY(6px);
   }
+
+  #pedido{
+    text-align: center;
+  }
