@@ -18,6 +18,9 @@ let cont_usu = 0;
 //-- Puerto donde lanzar el servidor
 const PORT = 8000
 
+//-- Variable para luego mostrar la fecha
+var fecha = new Date();
+
 //-- Lanzar servidor
 http.listen(PORT, function(){
   console.log('Servidor lanzado en puerto ' + PORT);
@@ -64,6 +67,7 @@ io.on('connection', function(socket){
     io.emit('msg', msg);
   })
 
+
   socket.on('cmd', (msg) => {
     console.log("Cliente: " + socket.id + ': ' + msg);
 
@@ -74,7 +78,7 @@ io.on('connection', function(socket){
     }else if (msg =='/hello') {
       socket.emit('cmd', "Hello");
     }else if (msg =='/date') {
-      socket.emit('cmd', "Fecha");
+      socket.emit('cmd', fecha.getDate() + "/" + (fecha.getMonth() +1) + "/" + fecha.getFullYear());
     }else {
       socket.emit('cmd', " Comando Erroneo: ejecute /help para ver los comandos permitidos ");
     }
